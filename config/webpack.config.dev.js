@@ -150,14 +150,9 @@ module.exports = {
           {
             test: /\.md$/,
             use: [
+              require.resolve("babel-loader"),
               {
-                loader: require.resolve("html-loader")
-              },
-              {
-                loader: require.resolve("markdown-loader"),
-                options: {
-                  /* your options here */
-                }
+                loader: require.resolve("@mdx-js/loader")
               }
             ]
           },

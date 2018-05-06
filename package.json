@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mdx-js/loader": "^0.8.1",
+    "@mdx-js/mdx": "^0.8.1",
     "@types/uuid": "^3.4.3",
     "abcjs": "^5.0.0",
     "autoprefixer": "7.1.6",
@@ -95,7 +97,8 @@
       "jsx",
       "json",
       "node",
-      "mjs"
+      "mjs",
+      "md"
     ],
     "globals": {
       "ts-jest": {
