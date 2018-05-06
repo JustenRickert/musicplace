@@ -1,14 +1,25 @@
 import * as React from "react";
 
-import Thing from "./blog/blog";
+import Router from "./Router";
+import { Nav } from "./Nav";
+import { One, Two } from "./blog/blog";
 
-const styles = require("./App.css");
+export enum BlogPath {
+  One = "one",
+  Two = "two"
+}
 
 class App extends React.Component {
   public render() {
+    const routeMap = new Map([
+      ["", <Two />],
+      [BlogPath.One, <One />],
+      [BlogPath.Two, <Two />]
+    ]);
     return (
-      <div className={styles.app}>
-        <Thing />
+      <div>
+        <Router routeMap={routeMap} />
+        <Nav />
       </div>
     );
   }

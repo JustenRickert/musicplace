@@ -1,4 +1,3 @@
-import * as React from "react";
 const One = require("./one.md").default;
-
-export default () => <One />;
+const Two = require("./two.md").default;
+export { One, Two };
