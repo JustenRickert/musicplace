@@ -3,6 +3,7 @@ import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
 import { SetStory } from 'story/Router'
+import { IncrementCount } from 'story/countinggame'
 
 interface RoutingDispatch {
   setStory: (story: string) => InstanceType<typeof SetStory>
@@ -23,4 +24,25 @@ const UnconnectedRoutingButton: React.StatelessComponent<
 
 export const RoutingButton = connect(undefined, mapDispatchToRoutingButtonProps)(
   UnconnectedRoutingButton
+)
+
+interface CountingGameDispatch {
+  incrementCount: () => InstanceType<typeof IncrementCount>
+}
+const mapDispatchToCountingGameProps = (dispatch: Dispatch) => ({
+  incrementCount: () => dispatch(new IncrementCount({}))
+})
+
+interface CountingGameProps {
+  text: string
+}
+
+const UnconnectedCountingGameButton: React.StatelessComponent<
+  CountingGameProps & CountingGameDispatch
+> = ({ incrementCount, text }) => (
+  <button onClick={_ => incrementCount()}>{text}</button>
+)
+
+export const CountingGameButton = connect(undefined, mapDispatchToCountingGameProps)(
+  UnconnectedCountingGameButton
 )

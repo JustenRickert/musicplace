@@ -4,6 +4,8 @@ import { action, on, payload, reducer } from 'ts-action'
 
 import { Store } from 'common/store'
 
+// ACTION / REDUCER / SELECTOR
+
 type GetStoryPayload = { story: string }
 
 export const SetStory = action('router/SET', payload<GetStoryPayload>())
@@ -24,6 +26,8 @@ export const storyRouterReducer = reducer<StoryRouterState>(
 )
 
 export const selectPath = (store: Store) => store.storyRouter.currentStory
+
+// COMPONENT
 
 export interface Props extends StoryRouterState {
   routeRecord: Record<string, React.ReactNode>

@@ -1,9 +1,11 @@
 import * as React from 'react'
-import { RoutingButton } from './components/button'
 
-const Game = () => (
+import { RoutingButton } from './components/button'
+import { default as Description } from './gamedescription.md'
+
+const Game: React.StatelessComponent = () => (
   <div>
-    <p>Yo sup it me</p>
+    <Description />
     <RoutingButton story="opening" text="Go back to opening text" />
   </div>
 )
