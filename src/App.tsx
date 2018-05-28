@@ -1,28 +1,23 @@
-import * as React from "react";
+import * as React from 'react'
 
-import Router from "./Router";
-import { Nav } from "./Nav";
-import { One, Two } from "./blog/blog";
+import StoryRouter from './StoryRouter'
 
-export enum BlogPath {
-  One = "one",
-  Two = "two"
+import { Opening, Game } from './story'
+
+export enum Story {
+  Opening = 'opening',
+  Game = 'game'
 }
 
-class App extends React.Component {
-  public render() {
-    const routeMap = new Map([
-      ["", <Two />],
-      [BlogPath.One, <One />],
-      [BlogPath.Two, <Two />]
-    ]);
-    return (
-      <div>
-        <Router routeMap={routeMap} />
-        <Nav />
-      </div>
-    );
-  }
+const routeRecord: Record<Story, React.ReactElement<any>> = {
+  [Story.Opening]: <Opening />,
+  [Story.Game]: <Game />
 }
 
-export default App;
+const App = () => (
+  <div>
+    <StoryRouter routeRecord={routeRecord} />
+  </div>
+)
+
+export default App

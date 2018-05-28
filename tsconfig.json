@@ -18,7 +18,11 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
+  "include": [
+    "./src/**/*"
+  ],
   "exclude": [
+    "./src/**/*.spec.ts",
     "node_modules",
     "build",
     "scripts",

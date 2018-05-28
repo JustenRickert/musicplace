@@ -1,0 +1,5 @@
+# -*- mode:yaml -*-
+
+printWidth: 85
+semi: false
+singleQuote: true
