@@ -1,8 +1,9 @@
 import * as React from 'react'
 
-import Router from './story/Router'
+import './app.module.css'
 
-import { Opening, Game } from './story/pages'
+import Router from 'story/Router'
+import { Opening, Game } from 'story/pages'
 
 export enum Story {
   Opening = 'opening',
@@ -14,10 +15,6 @@ const routeRecord: Record<Story, React.ReactElement<any>> = {
   [Story.Game]: <Game />
 }
 
-const App = () => (
-  <div>
-    <Router routeRecord={routeRecord} />
-  </div>
-)
+const App = () => <Router routeRecord={routeRecord} />
 
 export default App

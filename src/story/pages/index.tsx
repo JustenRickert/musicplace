@@ -1,25 +1,31 @@
 import * as React from 'react'
 
+const styles = require('./styles.module.css')
+
 import { default as _Opening } from './opening.md'
 export { default as Game } from './Game'
 
 export const Opening = () => {
+  let paragraphCounter = 0
   return (
-    <_Opening
-      components={{
-        inlineCode: (props: React.HTMLAttributes<HTMLElement>) => {
-          console.log('code', props)
-          return React.createElement('code', props)
-        },
-        h1: (props: React.HTMLAttributes<HTMLHeadElement>) => {
-          console.log('h1', props)
-          return React.createElement('h1', props)
-        },
-        p: (props: React.HTMLAttributes<HTMLParagraphElement>) => {
-          console.log('p', props)
-          return React.createElement('p', props)
-        }
-      }}
-    />
+    <div className={styles.typewriter}>
+      <_Opening
+        components={{
+          inlineCode: (props: React.HTMLAttributes<HTMLElement>) => (
+            <code {...props} />
+          ),
+          h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h1 {...props} />,
+          p: (props: React.HTMLAttributes<HTMLParagraphElement>) => {
+            paragraphCounter += 0.25
+            const style: React.CSSProperties = {
+              animationName: 'typing',
+              animationDuration: `${paragraphCounter}s`,
+              animationTimingFunction: 'steps(10)'
+            }
+            return <p {...props} style={style} />
+          }
+        }}
+      />
+    </div>
   )
 }

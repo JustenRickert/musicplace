@@ -35,7 +35,7 @@ export interface Props extends StoryRouterState {
 }
 
 const Router: React.StatelessComponent<Props> = ({ routeRecord, currentStory }) => (
-  <div>{routeRecord[currentStory]}</div>
+  <>{routeRecord[currentStory]}</>
 )
 
 const mapStateToProps = (state: Store) => ({
