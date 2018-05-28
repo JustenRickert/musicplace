@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "common/*": ["./src/common/*"],
+      "story/*": ["./src/story/*"]
+    },
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
@@ -18,11 +22,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
-  "include": [
-    "./src/**/*"
-  ],
   "exclude": [
-    "./src/**/*.spec.ts",
     "node_modules",
     "build",
     "scripts",

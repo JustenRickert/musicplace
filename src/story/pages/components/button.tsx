@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
-import { SetStory } from '../../StoryRouter'
+import { SetStory } from 'story/Router'
 
 interface RoutingDispatch {
   setStory: (story: string) => InstanceType<typeof SetStory>

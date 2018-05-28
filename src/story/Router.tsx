@@ -2,9 +2,11 @@ import * as React from 'react'
 import { connect, Dispatch } from 'react-redux'
 import { action, on, payload, reducer } from 'ts-action'
 
-import { Store } from './store'
+import { Store } from 'common/store'
 
-export const SetStory = action('router/SET', payload<{ story: string }>())
+type GetStoryPayload = { story: string }
+
+export const SetStory = action('router/SET', payload<GetStoryPayload>())
 
 export interface StoryRouterState {
   currentStory: string
@@ -28,10 +30,9 @@ export interface Props extends StoryRouterState {
   setStory: (path: string) => InstanceType<typeof SetStory>
 }
 
-const StoryRouter: React.StatelessComponent<Props> = ({
-  routeRecord,
-  currentStory
-}) => <div>{routeRecord[currentStory]}</div>
+const Router: React.StatelessComponent<Props> = ({ routeRecord, currentStory }) => (
+  <div>{routeRecord[currentStory]}</div>
+)
 
 const mapStateToProps = (state: Store) => ({
   currentStory: selectPath(state)
@@ -41,4 +42,4 @@ const mapDispatchToProps = (dispatch: Dispatch<Store>) => ({
   setStory: (story: string) => dispatch(new SetStory({ story }))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(StoryRouter)
+export default connect(mapStateToProps, mapDispatchToProps)(Router)

@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import StoryRouter from './StoryRouter'
+import Router from './story/Router'
 
-import { Opening, Game } from './story'
+import { Opening, Game } from './story/pages'
 
 export enum Story {
   Opening = 'opening',
@@ -16,7 +16,7 @@ const routeRecord: Record<Story, React.ReactElement<any>> = {
 
 const App = () => (
   <div>
-    <StoryRouter routeRecord={routeRecord} />
+    <Router routeRecord={routeRecord} />
   </div>
 )
 
